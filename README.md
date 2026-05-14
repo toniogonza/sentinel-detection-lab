@@ -36,6 +36,40 @@ to demonstrate real-world threat detection and investigation capability.
 - Custom KQL analytics rule deployed and mapped to MITRE ATT&CK T1110.001
 - Incident investigation documented following SOC Tier 1 triage methodology
 
+---
+
+## Key Findings — Scenario 2
+
+**Technique:** T1136.001 — Create Local Account  
+**Severity:** High  
+**Status:** Detected ✅
+
+A suspicious local administrator account was created on the victim machine by user `labadmin`. The account `hackersim` was immediately added to the local Administrators group, simulating a backdoor persistence technique used by attackers after initial access.
+
+**Events Detected:**
+- EventID 4720 — New user account created: `hackersim`
+- EventID 4732 — Account added to Administrators group
+
+**Analytics Rule:** Suspicious Local Admin Account Created  
+**KQL File:** See `scenario2-local-admin-creation.kql`
+
+---
+
+## Key Findings — Scenario 3
+
+**Technique:** T1078.004 — Valid Accounts (Cloud Accounts)  
+**Severity:** Medium  
+**Status:** Detected ✅
+
+Sentinel detected successful RDP logons (LogonType 10) from external IP addresses to the victim machine. One logon originated from IP `96.85.126.229` — a different IP than the primary admin session — indicating potential use of valid credentials from an anomalous location.
+
+**Events Detected:**
+- EventID 4624 — Successful RDP logon (LogonType 10)
+- Multiple source IPs detected across sessions
+
+**Analytics Rule:** Suspicious RDP Logon from Anomalous IP  
+**KQL File:** See `scenario3-rdp-anomaly.kql`
+
 ## Tools Used
 Microsoft Sentinel | KQL | Azure Monitor Agent | Log Analytics | 
 MITRE ATT&CK | AbuseIPDB | Microsoft Defender XDR
