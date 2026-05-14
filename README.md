@@ -36,7 +36,6 @@ to demonstrate real-world threat detection and investigation capability.
 - Custom KQL analytics rule deployed and mapped to MITRE ATT&CK T1110.001
 - Incident investigation documented following SOC Tier 1 triage methodology
 
----
 
 ## Key Findings — Scenario 2
 
@@ -53,7 +52,6 @@ A suspicious local administrator account was created on the victim machine by us
 **Analytics Rule:** Suspicious Local Admin Account Created  
 **KQL File:** See `scenario2-local-admin-creation.kql`
 
----
 
 ## Key Findings — Scenario 3
 
